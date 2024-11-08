@@ -1,9 +1,17 @@
 import React from 'react'
 
-function Navbar() {
+function Navbar({viewSlide,setViewSlide}) {
   return (
-    <div className='fixed ml-[18rem] w-[calc(100vw-18rem)] bg-white h-[4rem] flex justify-end z-20'>
-      <div className='flex gap-4 items-center text-[#5A57FE] mr-11'>
+    <div className='fixed lg:ml-[18rem] w-screen lg:w-[calc(100vw-18rem)] bg-white h-[4rem] flex justify-between lg:justify-end z-20'>
+      <div className='lg:hidden flex items-center w-[45%] sm:w-[30%]'>
+      <div className='text-[#5A57FE] flex gap-4 items-center w-full h-fit justify-center'>
+                <div className='w-[1.8rem] h-[1.8rem] bg-[#5A57FE] rounded-full flex justify-center items-center'>
+                    <div className='w-[1.3rem] h-[1.3rem] bg-white rounded-full'></div>
+                </div>
+                <h1 className='text-xl font-semibold'>Netlabs</h1>
+            </div>
+      </div>
+      <div className='flex gap-4 items-center text-[#5A57FE] mr-6 sm:mr-11'>
         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor">
           <path
             d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z" />
@@ -25,6 +33,11 @@ function Navbar() {
             <p className='text-[#666] text-xs'>Admin</p>
           </div>
         </div>
+        <div onClick={()=>setViewSlide(!viewSlide)} className='lg:hidden text-[#5A57FE]'>
+                <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="24px"
+                    fill="currentColor">
+                    <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" /></svg>
+            </div>
       </div>
     </div>
   )

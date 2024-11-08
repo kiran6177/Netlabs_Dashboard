@@ -18,9 +18,9 @@ function ProductAging() {
 
   return (
     <div className="bg-white rounded-md my-8 py-3 px-9">
-  <h2 className="text-3xl font-semibold my-5">Product Aging Reports</h2>
-  <div className="w-[50%]">
-    <h3 className="border-2 rounded-md px-4 py-2 flex justify-between relative" onClick={()=> setViewOptions(true)}
+  <h2 className="text-xl sm:text-3xl font-semibold my-5">Product Aging Reports</h2>
+  <div className="w-[100%] sm:w-[60%]  md:w-[50%]">
+    <h3 className="border-2 rounded-md text-xs sm:text-base px-4 py-2 flex justify-between relative" onClick={()=> setViewOptions(true)}
       >
       {selectedCategory}
       <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
@@ -45,7 +45,9 @@ function ProductAging() {
       )}
     </h3>
   </div>
-  <svg ref={svgRef}></svg>
+      <div className="w-full overflow-x-scroll scroll-element">
+        <svg ref={svgRef}></svg>
+      </div>
 </div>
   );
 }

@@ -11,3 +11,12 @@ body{
 .active{
   color: white !important;
 }
+.scroll-element {
+  overflow: auto; /* or overflow: scroll */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.scroll-element::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}

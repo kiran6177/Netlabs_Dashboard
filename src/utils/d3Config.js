@@ -14,7 +14,7 @@ export function generateContrastingColors(length) {
  
 export function d3Pie(data, svgRef,isNeeded ,colorArr) {
   let colors = colorArr ? colorArr : data.map(dat=>dat.label)
-  const width = 450;
+  const width = 500;
   const height = 450;
   const margin = 40;
   const radius = Math.min(width, height) / 2 - margin;
@@ -75,7 +75,7 @@ export function d3StackedBar(data, ref, width, height) {
   const xScale = d3
     .scaleBand()
     .rangeRound([0, width])
-    .paddingOuter(0.9)
+    .paddingOuter(0.6)
     .paddingInner(0.3)
     .align(0.1);
   const yScale = d3.scaleLinear().rangeRound([height, 0]);
@@ -126,7 +126,7 @@ export function d3StackedBar(data, ref, width, height) {
     .enter()
     .append("rect")
     .attr("x", function (d) {
-      return xScale(d.data.label);
+      return xScale(d.data.label) + 10;
     })
     .attr("y", function (d) {
       return yScale(d[1]);
@@ -141,7 +141,7 @@ export function d3StackedBar(data, ref, width, height) {
   svg
     .append("g")
     .attr("class", "x-axis")
-    .attr("transform", `translate(30,${height + 10})`)
+    .attr("transform", `translate(40,${height + 10})`)
     .call(xAxis);
 
   // Create y-axis
@@ -154,7 +154,9 @@ export function d3StackedBar(data, ref, width, height) {
 }
 
 export function d3Bar(dataObj, svgRef) {
-    let width = window.innerWidth - 500;
+    let parent = svgRef.current.parentElement;
+    const width = parent.offsetWidth < 768 ? 600 : parent.offsetWidth;
+    // let width = window.innerWidth - 500;
     let height = 600;
     let leftMargin = 30;
     let rightMargin = 20;
@@ -208,14 +210,16 @@ export function d3Bar(dataObj, svgRef) {
         .attr("x", xscale(Object.keys(dataObj)[index]) )
         .attr("y", (yscale(element)))
         .text(element)
-        .attr("transform", `translate(${leftMargin + 100}, ${topMargin - 10})`)
+        .attr("transform", `translate(${leftMargin + 60}, ${topMargin - 10})`)
     });
     
 }
 
 export function d3LineChart(svgRef,data){
   const svg = d3.select(svgRef.current);
-    const width = window.innerWidth - 500;
+    // const width = window.innerWidth - 500;
+    let parent = svgRef.current.parentElement;
+    const width = parent.offsetWidth < 768 ? 600 : parent.offsetWidth;
     const height = 400;
     const margin = { top: 20, right: 30, bottom: 40, left: 40 };
 

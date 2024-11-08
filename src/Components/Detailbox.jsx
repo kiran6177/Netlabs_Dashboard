@@ -4,9 +4,9 @@ import { getDataCounts } from '../utils/getDataCounts'
 function Detailbox({type}) {
     const count = useMemo(()=>getDataCounts(type),[type])
   return (
-    <div className='bg-white rounded-md p-6 flex flex-col relative min-h-[9rem] justify-between shadow-lg'>
-        <h3 className='text-2xl tracking-wide'>{type}</h3>
-        <svg className='absolute bottom-4' xmlns="http://www.w3.org/2000/svg" height="60px" viewBox="0 -960 960 960"
+    <div className='bg-white rounded-md p-4 md:p-6 flex flex-col relative min-h-[7rem] md:min-h-[9rem] justify-between shadow-lg'>
+        <h3 className='sm:text-xl  tracking-wide whitespace-nowrap overflow-hidden text-ellipsis'>{type}</h3>
+        <svg className='absolute bottom-4  w-[40px] h-[40px] lg:h-auto' xmlns="http://www.w3.org/2000/svg" height="60px" viewBox="0 -960 960 960"
             width="60px" fill="#5A57FE">
             {type === "Warehouses" ? <path
                 d="M160-200h80v-320h480v320h80v-426L480-754 160-626v426Zm-80 80v-560l400-160 400 160v560H640v-320H320v320H80Zm280 0v-80h80v80h-80Zm80-120v-80h80v80h-80Zm80 120v-80h80v80h-80ZM240-520h480-480Z" />
@@ -20,7 +20,7 @@ function Detailbox({type}) {
              <path d="m480-560-56-56 63-64H320v-80h167l-64-64 57-56 160 160-160 160ZM280-80q-33 0-56.5-23.5T200-160q0-33 23.5-56.5T280-240q33 0 56.5 23.5T360-160q0 33-23.5 56.5T280-80Zm400 0q-33 0-56.5-23.5T600-160q0-33 23.5-56.5T680-240q33 0 56.5 23.5T760-160q0 33-23.5 56.5T680-80ZM40-800v-80h131l170 360h280l156-280h91L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68.5-39t-1.5-79l54-98-144-304H40Z"/>
              : <path d="M438-226 296-368l58-58 84 84 168-168 58 58-226 226ZM200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Z"/>
             }</svg>
-        <p className='self-end text-4xl font-semibold'>{count}</p>
+        <p className='self-end text-xl md:text-2xl lg:text-4xl font-semibold'>{count}</p>
     </div>
   )
 }

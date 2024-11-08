@@ -19,9 +19,9 @@ function CategoryGraph() {
 
   return (
     <div className="bg-white rounded-md my-8 py-7 px-12">
-    <h2 className="text-3xl font-semibold my-5">Category Specfic Reports</h2>
-    <div className="w-[50%]">
-        <h3 className="border-2 rounded-md px-4 py-2 flex justify-between relative" onClick={()=> setViewOptions(true)}
+    <h2 className="text-xl sm:text-3xl font-semibold my-5">Category Specfic Reports</h2>
+    <div className="w-[100%]  md:w-[50%]">
+        <h3 className="text-sm sm:text-base border-2 rounded-md px-4 py-2 flex justify-between relative" onClick={()=> setViewOptions(true)}
             >
             {selectedCategory}
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
@@ -47,8 +47,8 @@ function CategoryGraph() {
             )}
         </h3>
     </div>
-    <div className="my-4">
-        <svg ref={svgRef} className="min-h-[700px] w-full"></svg>
+    <div className="my-4 overflow-x-scroll scroll-element">
+        <svg ref={svgRef} className="min-w-[600px] min-h-[700px] w-full"></svg>
     </div>
 </div>
   );

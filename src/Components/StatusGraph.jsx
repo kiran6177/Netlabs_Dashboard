@@ -18,8 +18,11 @@ function StatusGraph() {
 
   return (
     <div className="bg-white rounded-md my-8 p-7">
-      <h2 className="text-3xl font-semibold">Order Status Reports</h2>
+      <h2 className="text-xl sm:text-3xl font-semibold">Order Status Reports</h2>
+      <div className="w-full overflow-x-scroll scroll-element">
       <svg ref={svgRef} className="mx-auto"></svg>
+
+      </div>
     </div>
   );
 }
